@@ -26,7 +26,6 @@ public class ScreenService extends Service {
     if(intent == null) return START_STICKY;
     if (screenOn != null && intent.getBooleanExtra("screen_state", false)) {
       Intent activityIntent = new Intent(this, LandingActivity.class);
-      activityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
       this.startActivity(activityIntent);
     } else {
       screenOn = intent.getBooleanExtra("screen_state", false);

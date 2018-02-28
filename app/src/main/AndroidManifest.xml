@@ -16,6 +16,8 @@
         android:configChanges="orientation|keyboardHidden|screenSize"
         android:label="@string/title_activity_landing"
         android:noHistory="true"
+        android:launchMode="singleTask"
+        android:excludeFromRecents="true"
         android:showOnLockScreen="true"
         android:theme="@style/FullscreenTheme">
       <intent-filter>
