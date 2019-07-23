@@ -1,12 +1,13 @@
 package service.lock.com.lockservice;
 
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class ScreenService extends Service {
   private ScreenReceiver mReceiver;
@@ -26,6 +27,7 @@ public class ScreenService extends Service {
     if(intent == null) return START_STICKY;
     if (screenOn != null && intent.getBooleanExtra("screen_state", false)) {
       Intent activityIntent = new Intent(this, LandingActivity.class);
+      activityIntent.addFlags(FLAG_ACTIVITY_NEW_TASK);
       this.startActivity(activityIntent);
     } else {
       screenOn = intent.getBooleanExtra("screen_state", false);
